@@ -27,8 +27,10 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
 
+
+  const API = process.env.NEXT_PUBLIC_API_URL;
   async function load() {
-    const res = await fetch("http://127.0.0.1:8000/demo/dashboard");
+    const res = await fetch(`${API}/demo/dashboard`);
     const json = await res.json();
     setData(json);
   }
@@ -38,9 +40,7 @@ export default function DashboardPage() {
     setLoading(true);
     setMsg(null);
     try {
-      const res = await fetch("http://127.0.0.1:8000/demo/cutoff", {
-        method: "POST",
-      });
+      const res = await fetch(`${API}/demo/cutoff`, { method: "POST" });
       const json = await res.json();
       setMsg(json.message ?? "Listo");
       await load();
