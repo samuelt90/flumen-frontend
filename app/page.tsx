@@ -1,5 +1,5 @@
 export default async function Home() {
-  const res = await fetch("http://127.0.0.1:8000/health", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/health`, {
     cache: "no-store",
   });
 
