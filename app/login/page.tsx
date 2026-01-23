@@ -1,6 +1,9 @@
 "use client";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+  const router = useRouter();
+
   return (
     <main className="min-h-screen flex items-center justify-center p-6">
       <div className="w-full max-w-sm rounded-2xl border p-6 shadow-sm">
@@ -28,7 +31,7 @@ export default function LoginPage() {
           <button
             type="button"
             className="w-full rounded-xl bg-black text-white py-2 font-medium"
-            onClick={() => (window.location.href = "/dashboard")}
+            onClick={() => router.push("/seleccionar-estacion")}
           >
             Entrar
           </button>
